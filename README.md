@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # NotesAI — Handwritten PDF Study Assistant
 
 > Gen AI Hackathon 2026 · Document Intelligence Track
@@ -171,3 +172,15 @@ Yes — just drag and drop. New chunks are appended to the existing ChromaDB col
 =======
 # Notes_AI
 >>>>>>> 2ca2db161e213bbfeb6b1be0ee36d4bdf037198a
+=======
+# NotesAI
+
+AI-powered study assistant for handwritten notes using OCR + RAG + Local LLM.
+
+Features:
+- Upload handwritten PDFs
+- OCR extraction
+- Semantic search using embeddings
+- Ask questions from notes
+- Answers with citations
+>>>>>>> c1958826625850d9df95ce0bea7e613d34ea4b55

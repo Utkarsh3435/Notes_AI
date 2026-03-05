@@ -1,0 +1,27 @@
+# NotesAI — Python dependencies
+# Install with: pip install -r requirements.txt
+
+# Web framework
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+python-multipart==0.0.9
+
+# PDF → Image (requires poppler: brew install poppler / apt install poppler-utils)
+pdf2image==1.17.0
+Pillow==10.4.0
+
+# OCR via Anthropic Vision API
+anthropic>=0.34.0
+
+# Local embeddings (downloads ~80 MB model on first run)
+sentence-transformers==3.1.1
+
+# Local vector database
+chromadb==0.5.15
+
+# HTTP client for Ollama
+requests==2.32.3
+
+# Utilities
+python-dotenv==1.0.1
+pydantic==2.9.2

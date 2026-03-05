@@ -31,6 +31,7 @@ Search query:
     except:
         return question
 
+
 def generate_report_llm(context):
 
     prompt = f"""
@@ -54,14 +55,50 @@ Report:
     payload = {
         "model": MODEL,
         "messages": [{"role": "user", "content": prompt}],
-        "stream": False
+        "stream": False,
     }
 
     response = requests.post(OLLAMA_URL, json=payload)
     response.raise_for_status()
 
     return response.json()["message"]["content"]
-    
+
+
+def generate_important_questions(context):
+
+    context_text = "\n\n".join(context)
+
+    prompt = f"""
+You are an AI exam preparation assistant.
+
+Based ONLY on the following study notes, generate important exam questions.
+
+Rules:
+- Do not use outside knowledge
+- Focus on concepts from the notes
+- Generate:
+  • 5 short answer questions
+  • 5 long answer questions
+- Questions should be useful for university exams.
+
+Notes:
+{context_text}
+
+Important Questions:
+"""
+
+    payload = {
+        "model": MODEL,
+        "messages": [{"role": "user", "content": prompt}],
+        "stream": False,
+    }
+
+    response = requests.post(OLLAMA_URL, json=payload)
+    response.raise_for_status()
+
+    return response.json()["message"]["content"]
+
+
 def generate_answer(question, context, history="", retrieval_scores=None):
 
     context_text = "\n\n".join(

@@ -9,7 +9,7 @@ import json
 import base64
 from pathlib import Path
 from typing import Optional
-
+from llm import generate_important_questions
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse, JSONResponse
@@ -152,6 +152,17 @@ async def upload_pdf(file: UploadFile = File(...)):
         print(f"[ERROR] Upload failed: {e}")
         raise HTTPException(status_code=500, detail=str(e))
 
+
+@app.post("/generate_questions")
+def generate_questions():
+
+    results = vector_store.collection.get()
+
+    texts = results["documents"][:20]  # limit to avoid huge prompt
+
+    questions = generate_important_questions(texts)
+
+    return {"questions": questions}
 
 @app.post("/chat", response_model=ChatResponse)
 def chat(req: ChatRequest):

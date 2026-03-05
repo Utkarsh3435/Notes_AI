@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # NotesAI — Handwritten PDF Study Assistant
 
 > Gen AI Hackathon 2026 · Document Intelligence Track
@@ -167,3 +168,6 @@ Use a smaller model: `ollama pull phi3:mini` and update `MODEL_NAME = "phi3:mini
 
 **Q: Can I add more PDFs during the demo?**  
 Yes — just drag and drop. New chunks are appended to the existing ChromaDB collection.
+=======
+# Notes_AI
+>>>>>>> 2ca2db161e213bbfeb6b1be0ee36d4bdf037198a
